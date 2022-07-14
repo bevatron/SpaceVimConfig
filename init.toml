@@ -1,0 +1,77 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2017 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg at 163.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "gruvbox"
+    colorscheme_bg = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true 
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    statusline_separator = "arrow"
+    statusline_iseparator = "bar"
+    statusline_inactive_separator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+    bootstrap_before = 'MySpaceVim#before'
+    bootstrap_after = 'MySpaceVim#after'
+    max_column = 80
+
+# Enable autocomplete layer
+[[layers]]
+    name = 'autocomplete'
+    auto-completion-return-key-behavior = "complete"
+    auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+    name = 'lang#c'
+    clang_executable = "/home/chris/local_tools/llvm/14.0.0/bin/clang-14"
+    enable_clang_syntax_highlight = true
+    [layer.clang_std]
+        c = "c11"
+        objc = "c11"
+
+[[layers]]
+    name = 'lsp'
+    filetypes = [
+      "c"
+    ]
+    [layers.override_cmd]
+          c = ["/usr/bin/clangd-14", "--query-driver=/home/chris/local_tools/llvm/14.0.0/bin/clang-14", "-log=verbose"]
+
+[[layers]]
+  name = "checker"
+  enable = false
+
+[[layers]]
+    name = "format"
+    format_on_save = true
+
+[[layers]]
+    name = "leaderf"
+
+[[layers]]
+    name = 'core'
+    enable_smooth_scrolling = false
+
+[[layers]]
+    name = "VersionControl"
+
+[[layers]]
+  name = "git"
+   git_plugin = 'fugitive'
+
+[[custom_plugins]]
+  repo="ojroques/vim-oscyank"
+  merged = false
