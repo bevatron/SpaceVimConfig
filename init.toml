@@ -11,11 +11,12 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "gruvbox"
+    colorscheme = "NeoSolarized"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true 
+    guifont = "SauceCodePro Nerd Font Mono:h12"
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
     statusline_separator = "arrow"
@@ -26,40 +27,49 @@
     enable_statusline_mode = false
     bootstrap_before = 'MySpaceVim#before'
     bootstrap_after = 'MySpaceVim#after'
-    max_column = 80
+    #autocomplete_method = "deoplete"
+    max_column = 100
+
+[[layers]]
+    name = 'lsp'
+    #enabled_clients = ['vimls','clangd']
+    enabled_clients = ['clangd']
+    filetypes = [
+      'c',
+      'cpp'
+    ]
+
+[[layers]]
+    name = "colorscheme"
+
+[[layers]]
+    name = "leaderf"
+
+[[layers]]
+    name = "telescope"
 
 # Enable autocomplete layer
 [[layers]]
     name = 'autocomplete'
-    auto-completion-return-key-behavior = "complete"
-    auto-completion-tab-key-behavior = "smart"
+#    auto-completion-return-key-behavior = "complete"
+#    auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
     name = 'lang#c'
-    clang_executable = "/home/chris/local_tools/llvm/14.0.0/bin/clang-14"
-    enable_clang_syntax_highlight = true
-    [layer.clang_std]
-        c = "c11"
-        objc = "c11"
+#    clang_executable = "/home/chris/local_tools/llvm/14.0.0/bin/clang-14"
+#    enable_clang_syntax_highlight = true
+#    [layer.clang_std]
+#        c = "c11"
+#        objc = "c11"
 
-[[layers]]
-    name = 'lsp'
-    filetypes = [
-      "c"
-    ]
-    [layers.override_cmd]
-          c = ["/usr/bin/clangd-14", "--query-driver=/home/chris/local_tools/llvm/14.0.0/bin/clang-14", "-log=verbose"]
-
-[[layers]]
-  name = "checker"
-  enable = false
+#[[layers]]
+#  name = "checkers"
+#  enable = false
 
 [[layers]]
     name = "format"
     format_on_save = true
 
-[[layers]]
-    name = "leaderf"
 
 [[layers]]
     name = 'core'
@@ -70,7 +80,7 @@
 
 [[layers]]
   name = "git"
-   git_plugin = 'fugitive'
+  git_plugin = 'neogit'
 
 [[custom_plugins]]
   repo="ojroques/vim-oscyank"
