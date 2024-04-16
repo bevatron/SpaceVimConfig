@@ -80,7 +80,10 @@
 
 [[layers]]
   name = "git"
-  git_plugin = 'neogit'
+#git_plugin = 'neogit'
+
+[[layers]]
+  name = "private"
 
 [[custom_plugins]]
   repo="ojroques/vim-oscyank"
